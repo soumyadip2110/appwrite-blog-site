@@ -1,5 +1,5 @@
 import React from 'react'
-import authService from '../../appwrite/auth_service'
+import authService from '../../appwrite/auth'
 import {logOut} from '../../store/authSlice'
 import { useDispatch } from 'react-redux'
 
