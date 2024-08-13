@@ -1,6 +1,6 @@
 import React from 'react'
 import authService from '../../appwrite/auth'
-import {logOut} from '../../store/authSlice'
+import {logout} from '../../store/authSlice'
 import { useDispatch } from 'react-redux'
 
 function LogoutBtn() {
@@ -9,7 +9,7 @@ function LogoutBtn() {
 	const logoutHandler = () => {
 		authService.logout()
 		.then(() => {
-			dispatch(logOut())
+			dispatch(logout())
 		})
 		.catch((error) => {
 			console.log('Header :: logoutHandler :: Error : ', error);

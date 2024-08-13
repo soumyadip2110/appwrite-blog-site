@@ -47,37 +47,40 @@ function Signup() {
                 {error && <p className="text-red-600 mt-8 text-center">{error}</p>}
 
                 <form onSubmit={handleSubmit(create)}>
-                <div className='space-y-5'>
-                    <Input
-                        label='Full Name: '
-                        placeholder='Enter your full name'
-                        {...register('name', {
-                            required: true
-                        })}
-                    />
-                    <Input
-                        label='Email: '
-                        placeholder='Enter your email'
-                        type='email'
-                        {...register('email', {
-                            required: true,
-                            validate: {
-                                matchPattern: (value) => (
-                                    /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/
-                                    .test(value) || "Email address must be a valid address"
-                                )
-                            }
-                        })}
-                    />
-                    <Input
-                        label='Password'
-                        type='password'
-                        placeholder='Enter your password'
-                        {...register('password', {
-                            required: true
-                        })}
-                    />
-                </div>
+                    <div className='space-y-5'>
+                        <Input
+                            label='Full Name: '
+                            placeholder='Enter your full name'
+                            {...register('name', {
+                                required: true
+                            })}
+                        />
+                        <Input
+                            label='Email: '
+                            placeholder='Enter your email'
+                            type='email'
+                            {...register('email', {
+                                required: true,
+                                validate: {
+                                    matchPattern: (value) => (
+                                        /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/
+                                            .test(value) || "Email address must be a valid address"
+                                    )
+                                }
+                            })}
+                        />
+                        <Input
+                            label='Password'
+                            type='password'
+                            placeholder='Enter your password'
+                            {...register('password', {
+                                required: true
+                            })}
+                        />
+                        <Button type='submit' className='w-full'>
+                            Create Account
+                        </Button>
+                    </div>
                 </form>
             </div>
         </div>

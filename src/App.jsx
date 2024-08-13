@@ -2,8 +2,9 @@ import { useEffect, useState } from 'react'
 import './App.css'
 import { Footer, Header } from './components'
 import authService from './appwrite/auth'
-import {logIn, logOut} from './store/authSlice'
+import {login, logout} from './store/authSlice'
 import { useDispatch } from 'react-redux'
+import { Outlet } from 'react-router-dom'
 
 function App() {
 	const [loading, setLoading] = useState(true)
@@ -13,9 +14,9 @@ function App() {
 		authService.getCurrentUser()
 		.then((userData) => {
 			if (userData){
-				dispatch(logIn({userData}))
+				dispatch(login({userData}))
 			} else {
-				dispatch(logOut())
+				dispatch(logout())
 			}
 		})
 		.catch((error) => {
@@ -31,7 +32,7 @@ function App() {
 			<div className='w-full block'>
 				<Header />
 				<main>
-					{/* <Outlet>  */}
+					<Outlet />
 				</main>
 				<Footer />
 			</div>
